@@ -1,0 +1,29 @@
+.feature-box {
+  background-color: rgba($color-white, 0.8);
+  font-size: 1.5rem;
+  padding: 2.5rem;
+  text-align: center;
+  border-radius: 3px;
+  transition: all 0.3s;
+  box-shadow: 0 1rem 4rem rgba($color-black, 0.15);
+
+  &:hover {
+    transform: translateY(-1rem);
+  }
+
+  &__icon {
+    font-size: 6rem;
+    margin-bottom: 0.5rem;
+    background-image: linear-gradient(
+      to right,
+      $color-primary-light,
+      $color-primary-dark
+    );
+    -webkit-background-clip: text; // 把字从背景图片抠出来
+    background-clip: text;
+    color: transparent; // 因为字体会覆盖背景，所以要设置成透明，才会让字体有背景的颜色
+  }
+
+  &__text {
+  }
+}

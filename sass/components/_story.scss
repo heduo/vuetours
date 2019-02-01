@@ -1,0 +1,66 @@
+.story {
+  width: 75%;
+  margin: 0 auto 10rem auto;
+  box-shadow: 0 3rem 6rem rgba($color-black, 0.15);
+  border-radius: 3px;
+  background-color: rgba($color-white, 0.5);
+  padding: 6rem;
+  font-size: $default-font-size;
+  padding-left: 9rem; // 因为头像框向左位移了2rem, 所以左边的padding + 2rem，总共6rem
+  transform: skewX(-12deg);
+
+  /* transform 一个元素同事只能执行一次transform，不可以被覆盖**/
+  /*所以 选择器：所有直接子节点，不可以用来做transform，如果子节点已经定义过transform，因为不可被覆盖*/
+
+  &__shape {
+    position: relative;
+    width: 15rem;
+    height: 15rem;
+    float: left;
+    -webkit-shape-outside: circle(
+      50% at 50% 50%
+    ); // 用来使文字环绕某一个图形， 必须要满足2条件：1. 有设长跟宽， 2.有float
+    shape-outside: circle(50% at 50% 50%); // 半径，圆点坐标
+    -webkit-clip-path: circle(40% at 50% 50%); // 半径，圆点坐标
+    clip-path: circle(50% at 50% 50%);
+    transform: translateX(-3rem) skewX(12deg); /* transform 一个元素同事只能执行一次transform，不可以被覆盖**/
+  }
+
+  &__img {
+    // width: 100%;
+    height: 100%;
+
+    transform: translateX(-4rem) scale(1.4);
+    transition: all 1s;
+  }
+
+  &__text {
+    transform: skewX(
+      12deg
+    ); /* transform 一个元素同事只能执行一次transform，不可以被覆盖**/
+  }
+
+  &__caption {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 20%);
+    // text-shadow: 1rem 1rem 4rem rgba($color-black, 0.15);
+    color: $color-white;
+    text-transform: uppercase;
+    font-size: 1.7rem;
+    text-align: center;
+    opacity: 0;
+    transition: all 0.5s;
+  }
+
+  &:hover &__caption {
+    transform: translate(-50%, -50%);
+    opacity: 1;
+  }
+
+  &:hover &__img {
+    transform: translateX(-4rem) scale(1);
+    filter: blur(3px) brightness(80%);
+  }
+}

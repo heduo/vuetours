@@ -1,0 +1,13 @@
+{
+  "name": "Vuetours",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "sass": "node-sass sass/main.scss css/style.css -w"
+  },
+  "devDependencies": {
+    "live-server": "^1.2.1",
+    "node-sass": "^4.11.0"
+  }
+}
